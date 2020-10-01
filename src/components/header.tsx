@@ -22,8 +22,6 @@ export default function Header(props: IHeaderProps) {
   return (
     <div className={style.headerContainer}>
       <FontAwesomeIcon
-        width="15px"
-        height="15px"
         onClick={() => {
           void Router.push("/wishList", undefined, { shallow: true });
         }}

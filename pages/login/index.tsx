@@ -2,7 +2,12 @@ import style from "../../styles/login.module.sass";
 import FacebookLogin from "react-facebook-login";
 import { useRouter } from "next/router";
 import GoogleLogin from "react-google-login";
-export default function Login() {
+import { GetServerSideProps } from "next";
+interface ILoginProps {
+  googleId: string;
+  facebookId: string;
+}
+export default function Login(props: ILoginProps) {
   const Router = useRouter();
   const callBackSocial = (response) => {
     localStorage.setItem("accessToken", response.accessToken);
@@ -35,13 +40,13 @@ export default function Login() {
           </div>
           <div className={style.facebook}>
             <FacebookLogin
-              appId={process.env.ClIENT_ID_FACEBOOK}
+              appId={props.facebookId}
               callback={callBackSocial}
             ></FacebookLogin>
           </div>
           <div className={style.google}>
             <GoogleLogin
-              clientId={process.env.ClIENT_ID_GOOGLE}
+              clientId={props.googleId}
               buttonText="Login"
               onSuccess={callBackSocial}
               onFailure={callBackSocial}
@@ -53,3 +58,12 @@ export default function Login() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<ILoginProps> = async () => {
+  return {
+    props: {
+      googleId: process.env.ClIENT_ID_GOOGLE,
+      facebookId: process.env.ClIENT_ID_FACEBOOK,
+    },
+  };
+};
