@@ -32,7 +32,7 @@ export default function Home(props: IHomeProps) {
     });
   }, []);
   return (
-    <Layout>
+    <Layout onChange={() => {}}>
       <div className={styles.container}>
         <Categories category={props.data.category} />
         {props.data.productPromo.map((product) => {

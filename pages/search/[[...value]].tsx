@@ -8,15 +8,30 @@ interface ISearchProps {
 }
 export default function Search(props: ISearchProps) {
   const search = useSelector((state) => state.detailProductReducer.rawData);
-  const result = search[0].filter((search) => {
-    return search.title.toLowerCase().includes(props.query);
-  });
+
+  const [result, setResult] = useState(
+    search[0].filter((search) => {
+      return search.title.toLowerCase().includes(props.query);
+    })
+  );
   const [input, setInput] = useState("");
+  useEffect(() => {
+    setResult(
+      search[0].filter((search) => {
+        return search.title.toLowerCase().includes(input);
+      })
+    );
+  }, [input]);
   useEffect(() => {
     setInput(props.query);
   }, [props.query]);
   return (
-    <Layout search={input}>
+    <Layout
+      onChange={(string) => {
+        setInput(string);
+      }}
+      search={input}
+    >
       {result.map((result) => {
         return <MiniProduct key={result.id} {...result} />;
       })}

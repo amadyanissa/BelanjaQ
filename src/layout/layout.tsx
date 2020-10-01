@@ -5,6 +5,7 @@ import MetaTags from "../../src/services/metaTagProcess";
 interface ILayoutProps {
   children: React.ReactChild;
   search?: string;
+  onChange: (string) => void;
 }
 export default function Layout(props: ILayoutProps) {
   return (
@@ -16,7 +17,12 @@ export default function Layout(props: ILayoutProps) {
         hrefLang={"/"}
         currentURL=""
       ></MetaTags>
-      <Header search={props?.search}></Header>
+      <Header
+        onChange={(string) => {
+          props.onChange(string);
+        }}
+        search={props?.search}
+      ></Header>
       {props.children}
       <NavBar></NavBar>
     </div>

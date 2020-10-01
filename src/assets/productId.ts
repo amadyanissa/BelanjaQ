@@ -6,7 +6,7 @@ const data = {
     description: "Dapatkan Detail Produk Kami",
   },
   hrefLang: {
-    "id-id": `http://localhost:300/product`,
+    "id-id": `${process.env.ORIGIN_URL}/product`,
   },
   robots: "index,follow",
 };

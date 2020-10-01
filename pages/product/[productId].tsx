@@ -45,7 +45,7 @@ export default function ProductDetail(props: IProductDetailProps) {
           />
           <WhatsappShareButton
             separator={""}
-            url={`${props.metaTags.hrefLang["id-id"]}${props.query}`}
+            url={`${props.metaTags.hrefLang["id-id"]}/${props.query}`}
           >
             <FontAwesomeIcon
               width="15px"
