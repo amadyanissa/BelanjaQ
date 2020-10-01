@@ -1,0 +1,56 @@
+@mixin social()
+  display: flex
+  width: 100%
+  justify-content: center
+  margin-top: 20px
+  button
+    width: 100%
+.container
+  height: 100vh
+  justify-content: center
+  align-items: center
+  display: flex
+  .card
+    display: flex
+    flex-direction: column
+    align-items: center
+    min-height: 500px
+    width: 80%
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2)
+    .text
+      font-weight: bolder
+      margin-top: 20px
+    form
+      display: flex
+      flex-direction: column
+      margin-top: 20px
+      input
+        border: 1px solid lightgrey
+        height: 42px
+        margin-bottom: 5px
+        border-radius: 4px
+        padding-left: 5px
+      .signInAndCheckBox
+        display: flex
+        align-items: center
+        width: 100%
+        justify-content: space-between
+        .checkBox
+          display: flex
+          align-items: center
+        .signIn
+          display: flex
+          height: 40px
+          align-items: center
+          background-color: #424242
+          color: white
+          font-weight: bold
+          width: 80px
+          justify-content: center
+          border-radius: 4px
+      .google
+        @include social()
+      .facebook
+        @include social()
+        span
+          width: 100%
