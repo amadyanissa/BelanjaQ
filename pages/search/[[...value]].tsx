@@ -18,7 +18,7 @@ export default function Search(props: ISearchProps) {
   useEffect(() => {
     setResult(
       search[0].filter((search) => {
-        return search.title.toLowerCase().includes(input);
+        return search.title.toLowerCase().includes(input.toLocaleLowerCase());
       })
     );
   }, [input]);
