@@ -10,7 +10,7 @@ export function getProcessedMetaTags(data) {
 }
 export function getCurrentURL() {
   const { asPath } = useRouter();
-  return "http://localhost:3000" + asPath;
+  return process.env.ORIGIN_URL + asPath;
 }
 export default function MetaTags({
   title,

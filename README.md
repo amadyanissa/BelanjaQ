@@ -7,6 +7,7 @@ on .env-template
 ```
 ClIENT_ID_FACEBOOK=
 ClIENT_ID_GOOGLE=
+ORIGIN_URL=
 ```
 
 run
